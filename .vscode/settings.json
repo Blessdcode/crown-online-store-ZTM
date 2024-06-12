@@ -1,6 +1,9 @@
+
 {
 	"editor.fontFamily": "Operator Mono",
 	"editor.fontSize": 13,
 	"editor.cursorStyle": "line-thin",
-	"editor.fontLigatures": true
+	"editor.fontLigatures": true,
+	"reactSnippets.settings.prettierEnabled": true,
+	"prettier.tabWidth": 3,
 }

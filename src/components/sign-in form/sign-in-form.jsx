@@ -1,5 +1,5 @@
 /** @format */
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
 	createUserDocumentFromAuth,
 	signInWithGooglePopup,
@@ -8,6 +8,7 @@ import {
 import FormInput from "../form-input/form-input";
 import "./sign-in-form.styles.scss";
 import Button from "../button/button";
+
 
 const defaultFormFields = {
 	email: "",
@@ -18,13 +19,13 @@ const SignInForm = () => {
 	const [formFields, setFormFields] = useState(defaultFormFields);
 	const { email, password } = formFields;
 
+
 	const resetFormFields = () => {
 		setFormFields(defaultFormFields);
 	};
 
 	const signWithGoogle = async () => {
-		const { user } = await signInWithGooglePopup();
-		await createUserDocumentFromAuth(user);
+		 await signInWithGooglePopup();
 	};
 
 	const handleSubmit = async (event) => {
@@ -59,7 +60,7 @@ const SignInForm = () => {
 	return (
 		<div className="sign-up-container">
 			<h2>Already have an account?</h2>
-			<spa>Enter your email and password</spa>
+			<span>Enter your email and password</span>
 			<form onSubmit={handleSubmit}>
 				<FormInput
 					label="Email"
@@ -83,7 +84,7 @@ const SignInForm = () => {
 					<Button
 						type="button"
 						button="primary"
-						onclick={signWithGoogle}>
+						onClick={signWithGoogle}>
 						Sign In Google
 					</Button>
 				</div>
